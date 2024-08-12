@@ -18,14 +18,15 @@ async function connectDB(){
         await mongoose.connect(process.env.MONGODB_URI)
         console.log("Connected Successfully")
     } catch (error) {
-        console.error('Failed to connect')
+        console.error('Failed to connect', err)
     }
 }
 
 connectDB()
 
 //Routes
-
+const itemsRoute = ('./controllers/itemControllers')
+app.use('/api', itemsRoute)
 
 //Start the server
 const PORT = process.env.PORT || 5000
