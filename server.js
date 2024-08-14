@@ -25,7 +25,7 @@ async function connectDB(){
 connectDB()
 
 //Routes
-const itemsRoute = ('./controllers/itemControllers')
+const itemsRoute = require('./controllers/item')
 app.use('/api', itemsRoute)
 
 //Start the server
