@@ -27,13 +27,13 @@ router.get('/get', async (req,res) => {
 //Update Item
 router.put('/update', async (req,res) => {
     try {
-        const updatedItem = await findByIdAndUpdate(req.body.id, req.body, {new: true, runValidators: true})
+        const updatedItem = await Item.findByIdAndUpdate(req.body.id, req.body, {new: true, runValidators: true,})
         if(!updatedItem) {
             return res.status(404).json({message: "Item not found"})
         }
         res.status(404).json(updatedItem)
     } catch (error) {
-        res.status(500).json({message: 'Failed to update item', error: err.message})
+        res.status(500).json({message: 'Failed to update item', error: error.message})
     }
 })
 
